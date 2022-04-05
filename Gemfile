@@ -54,6 +54,9 @@ gem "bootsnap", require: false
 gem "slim"
 gem "slim-rails"
 
+# Use Devise
+gem "devise"
+
 ################################
 
 group :development, :test do
