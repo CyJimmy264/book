@@ -57,6 +57,9 @@ gem "slim-rails"
 # Use Devise
 gem "devise"
 
+# Use Webpacker
+gem "webpacker"
+
 ################################
 
 group :development, :test do
