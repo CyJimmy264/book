@@ -4,9 +4,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :users, only: [:index, :show, :update], shallow: true do
-    resources :messages, only: :create
-  end
+  resources :users, only: [:index, :show, :update], shallow: true
+  resources :records, only: :create
 
   # Defines the root path route ("/")
   root "home#index"
