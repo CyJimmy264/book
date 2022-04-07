@@ -1,3 +1,16 @@
-h1 Home#index
-p Find me in app/views/home/index.html.slim
-a href=users_path Users
+a href=users_path Profile
+
+h1 Records
+
+= form_with model: @record, url: records_path do |f|
+  = f.text_area :content
+  = f.submit
+
+- @records.each do |record|
+  div
+    small = l record.created_at, format: :default
+    br
+    small = current_user.email
+    pre = record.content
+    hr
+
