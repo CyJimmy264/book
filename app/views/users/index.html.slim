@@ -1,0 +1,16 @@
+h1 Book
+
+p Hello #{current_user.email}!
+
+h2 Key Management
+- if current_user.public_key.present?
+  h3 Your public key
+  pre = current_user.public_key
+
+h3 Add Key
+= form_with model: current_user do |f|
+  = f.label :public_key
+  br
+  = f.text_area :public_key, required: true
+  br
+  = f.submit "Add Key"
