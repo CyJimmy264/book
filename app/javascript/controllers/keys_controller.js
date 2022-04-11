@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
-import { registerKey } from "../model/crypto";
+import { registerKey } from "models/crypto"
 import * as openpgp from "openpgp"
 
 export default class extends Controller {
