@@ -1,4 +1,5 @@
-h1 Book
+h1
+  a href=root_path Book
 
 p Hello #{current_user.email}!
 
@@ -7,10 +8,16 @@ h2 Key Management
   h3 Your public key
   pre = current_user.public_key
 
-h3 Add Key
-= form_with model: current_user do |f|
+= form_with model: current_user, data: { controller: "keys" } do |f|
+  = f.hidden_field :email, name: nil, value: current_user.email, data: { target: "keys.email" }
+  button data-action="click->keys#generate" Generate Key Pair
+  br
   = f.label :public_key
   br
-  = f.text_area :public_key, required: true
+  = f.text_area :public_key, required: true, data: { target: "keys.publicKey" }
   br
-  = f.submit "Add Key"
+  = f.label :private_key
+  br
+  = f.text_area :private_key, name: nil, required: true, data: { target: "keys.privateKey" }
+  br
+  = f.submit "Update Keys", data: { action: "click->keys#register" }
