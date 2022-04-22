@@ -1,10 +1,5 @@
-a href=users_path Profile
-
-h1 Records
-
-= form_with model: @record, url: records_path do |f|
-  = f.text_area :content
-  = f.submit
+p
+  strong Records
 
 - @records.each do |record|
   div

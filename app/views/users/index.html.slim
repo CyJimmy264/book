@@ -1,11 +1,8 @@
-h1
-  a href=root_path Book
-
 p Hello #{current_user.email}!
 
-h2 Key Management
+h4 Key Management
 - if current_user.public_key.present?
-  h3 Your public key
+  h5 Your public key
   pre = current_user.public_key
 
 = form_with model: current_user, data: { controller: "keys" } do |f|
