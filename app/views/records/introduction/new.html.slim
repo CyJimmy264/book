@@ -1,0 +1,32 @@
+h4 Introduction
+
+p Let's fill in Introduction form!
+
+div.center
+  = form_with url: create_introduction_path do |f|
+    = f.label :first_name
+    br
+    = f.text_field :first_name, required: true
+    br
+
+    = f.label :patronymic
+    br
+    = f.text_field :patronymic
+    br
+
+    = f.label :surname
+    br
+    = f.text_field :surname
+    br
+
+    = f.label :birthdate
+    br
+    = f.date_field :birthdate
+    br
+
+    = f.label :address
+    br
+    = f.text_field :address
+    br
+
+    = f.submit "Save"
