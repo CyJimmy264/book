@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :update], shallow: true
   resources :records, only: :create
 
+  get '/records/introduction/new', as: 'new_introduction'
+  post '/records/introduction', to: 'records/introduction#create', as: 'create_introduction'
+
   # Defines the root path route ("/")
   root "home#index"
 end
