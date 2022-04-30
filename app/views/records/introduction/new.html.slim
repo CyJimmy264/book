@@ -4,9 +4,9 @@ p Let's fill in Introduction form!
 
 div.center
   = form_with url: create_introduction_path do |f|
-    = f.label :first_name
+    = f.label :firstname
     br
-    = f.text_field :first_name, required: true
+    = f.text_field :firstname, required: true
     br
 
     = f.label :patronymic

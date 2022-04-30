@@ -4,16 +4,19 @@
 *** Верифицируемая система принятия решений открытым голосованием
 
 * Сценарии
-** Log in
+** User
    Точка входа не аутентифицированного пользователя.
-
-*** Log in через email, password.
+*** Sign in
+    * email
+    * password
 **** success:
-     redirect ** Records
+     redirects ** Book
 
 *** Sign up
     * email
     * password
+**** success:
+     redirects ** Book
 
 ** Book
    Точка входа аутентифицированного пользователя.
@@ -25,7 +28,12 @@
     * *Имя
     * Отчество
     * Фамилия
+    * Дата рождения
     * Почтовый адрес
+
+    При отправке, создаётся запись в книге.
+
+    Пример: [[file:Examples/Introduction.yml][Examples/Introduction.yml]]
 
 ** Profile
    Страница профиля пользователя.
@@ -48,6 +56,7 @@
 * Модели
 ** Record
    * Content
+   * Author Id
 
 * Вклад
 ** Book.org, Book.md, README.md

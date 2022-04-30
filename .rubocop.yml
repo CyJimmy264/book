@@ -1,0 +1,8 @@
+Layout/HashAlignment:
+  EnforcedHashRocketStyle: table
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma
