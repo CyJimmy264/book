@@ -1,4 +1,6 @@
 class Records::IntroductionController < ApplicationController
+  before_action :require_login
+
   def new; end
 
   def introduction_params

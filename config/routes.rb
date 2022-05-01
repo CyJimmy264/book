@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get '/records/introduction/new', as: 'new_introduction'
   post '/records/introduction', to: 'records/introduction#create', as: 'create_introduction'
+  post '/records/:id', to: 'records#sign', as: 'sign_record'
 
   # Defines the root path route ("/")
   root "home#index"
