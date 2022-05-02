@@ -10,4 +10,8 @@ class RecordsController < ApplicationController
 
     redirect_to root_path
   end
+
+  def sign
+    redirect_to root_path, notice: 'Signed successfully'
+  end
 end

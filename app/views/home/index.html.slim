@@ -10,5 +10,7 @@ p
     br
     small = record.author.email
     pre = record.content
+    = form_with url: sign_record_path(record) do |f|
+      = f.submit 'Sign'
     hr
 

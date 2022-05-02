@@ -6,6 +6,7 @@
 * Сценарии
 ** User
    Точка входа не аутентифицированного пользователя.
+
 *** Sign in
     * email
     * password
@@ -35,6 +36,14 @@
 
     Пример: [[file:Examples/Introduction.yml][Examples/Introduction.yml]]
 
+*** Sign — подписать
+    Кнопка под каждой записью.
+
+    Активна, при наличии ключа в localStorage.
+
+    При нажатии, подписывается Record, создаётся Record подписи, подпись
+    сохраняется в Signature.
+
 ** Profile
    Страница профиля пользователя.
 
@@ -57,6 +66,7 @@
 ** Record
    * Content
    * Author Id
+** Signature
 
 * Вклад
 ** Book.org, Book.md, README.md
