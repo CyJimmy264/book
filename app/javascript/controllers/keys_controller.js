@@ -3,19 +3,30 @@ import { registerKey } from "models/crypto"
 import * as openpgp from "openpgp"
 
 export default class extends Controller {
-  static targets = ["email", "privateKey", "publicKey"];
+  static targets = ["username", "email", "passphrase", "privateKey", "publicKey", "fingerprint"]
+
+  async initialize() {
+    if (this.publicKeyTarget.value) {
+      this.fingerprintTarget.value = (
+        await openpgp.readKey({ armoredKey: this.publicKeyTarget.value })
+      ).getFingerprint().toUpperCase()
+    }
+  }
 
   async generate(event) {
     event.preventDefault();
     const key = await openpgp.generateKey({
       curve: "curve25519",
-      userIDs: [{ name: "Anonymous", email: this.emailTarget.value }],
-      passphrase: 'super long and hard to guess secret password',
+      userIDs: [{ name: this.usernameTarget.value, email: this.emailTarget.value }],
+      passphrase: this.passphraseTarget.value,
       format: 'armored',
     });
 
     this.privateKeyTarget.value = key.privateKey;
     this.publicKeyTarget.value = key.publicKey;
+    this.fingerprintTarget.value = (
+      await openpgp.readKey({ armoredKey: key.publicKey })
+    ).getFingerprint().toUpperCase()
   }
 
   async register() {
