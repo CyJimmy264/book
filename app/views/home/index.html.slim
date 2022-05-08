@@ -8,7 +8,7 @@ p
   div
     small = l record.created_at, format: :default
     br
-    small = current_user.email
+    small = record.author.email
     pre = record.content
     hr
 
