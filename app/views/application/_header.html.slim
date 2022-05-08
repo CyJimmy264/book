@@ -2,3 +2,4 @@ header
   nav
     a href=root_path Book
     a href=users_path Profile
+    = link_to 'Logout', destroy_user_session_path, method: :delete

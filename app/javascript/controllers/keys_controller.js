@@ -5,7 +5,7 @@ import * as openpgp from "openpgp"
 export default class extends Controller {
   static targets = ["username", "email", "passphrase", "privateKey", "publicKey", "fingerprint"]
 
-  async initialize() {
+  async connect() {
     if (this.publicKeyTarget.value) {
       this.fingerprintTarget.value = (
         await openpgp.readKey({ armoredKey: this.publicKeyTarget.value })

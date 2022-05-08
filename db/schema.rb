@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_06_073501) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_06_122619) do
   create_table "records", force: :cascade do |t|
     t.text "content", null: false
     t.integer "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "sha3"
     t.index ["author_id"], name: "index_records_on_author_id"
   end
 

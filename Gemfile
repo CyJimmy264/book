@@ -57,6 +57,8 @@ gem "slim-rails"
 # Use Devise
 gem "devise"
 
+gem 'sha3', '~> 1.0', '>= 1.0.4'
+
 ################################
 
 group :development, :test do
