@@ -5,12 +5,16 @@ p
   strong Records
 
 - @records.each do |record|
-  div
+  div data-controller="record"
     small = l record.created_at, format: :default
     br
     small = record.author.email
-    pre = record.content
-    = form_with url: sign_record_path(record) do |f|
-      = f.submit 'Sign'
-    hr
+    pre data-record-target="content" = record.content
 
+    = form_with url: sign_record_path(record) do |f|
+      = f.hidden_field :date, value: record.content.date
+      = f.hidden_field :sha3, value: record.sha3
+      = f.hidden_field :signature, data: { record_target: 'signature' }
+      = f.submit 'Sign', data: { action: 'click->record#sign' }
+
+    hr

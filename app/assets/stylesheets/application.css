@@ -17,7 +17,7 @@ html {
     overflow-y:scroll;
 }
 
-p:empty {
+p:empty, .hidden {
     display: none;
 }
 

@@ -15,10 +15,14 @@ class Records::IntroductionController < ApplicationController
     ).to_h
   end
 
+  def time_now
+    @time_now ||= Time.now
+  end
+
   def introduction_hash
     @introduction_hash ||= {
       'тип'           => 'представление',
-      'дата'          => Time.now.to_s,
+      'дата'          => time_now.to_s,
       'имя'           => introduction_params['firstname'],
       'отчество'      => introduction_params['patronymic'],
       'фамилия'       => introduction_params['surname'],
@@ -37,6 +41,7 @@ class Records::IntroductionController < ApplicationController
         content:,
         author_id: current_user.id,
         sha3: SHA3::Digest.hexdigest(:sha256, content),
+        created_at: time_now,
       }
     )
 
