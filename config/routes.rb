@@ -9,11 +9,10 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:index, :show, :update], shallow: true
-  resources :records, only: :create
 
   get '/records/introduction/new', as: 'new_introduction'
   post '/records/introduction', to: 'records/introduction#create', as: 'create_introduction'
-  post '/records/:id', to: 'records#sign', as: 'sign_record'
+  post '/records/signature', to: 'records/signature#create', as: 'sign_record'
 
   # Defines the root path route ("/")
   root "home#index"
