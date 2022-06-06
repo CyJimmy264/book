@@ -32,13 +32,14 @@ class Records::SignatureController < ApplicationController
   end
 
   def signature_valid?
-    cmd = %(node js/openpgp.js verify "%s" "%s" "%s") % [
+    result = SafeShell.execute(
+      'node',
+      'js/openpgp.js',
+      'verify',
       Record.find_by(id: signature_params['id']).content,
       signature,
       current_user.public_key
-    ]
-
-    result = `#{cmd}`
+    )
 
     result.include? current_user.fingerprint.last(16)
   end

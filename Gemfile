@@ -58,6 +58,7 @@ gem "slim-rails"
 gem "devise"
 
 gem 'sha3', '~> 1.0', '>= 1.0.4'
+gem 'safe_shell'
 
 ################################
 
