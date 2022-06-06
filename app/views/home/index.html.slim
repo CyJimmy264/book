@@ -11,11 +11,21 @@ p
     small = record.author.email
     pre data-record-target="content" = record.content
 
-    = form_with url: sign_record_path do |f|
-      = f.hidden_field :id, value: record.id
-      = f.hidden_field :date, value: record.content.date
-      = f.hidden_field :sha3, value: record.sha3
-      = f.hidden_field :signature, data: { record_target: 'signature' }
-      = f.submit 'Sign', data: { action: 'click->record#sign' }
+
+    - if record.signatures.length > 0
+      div
+        strong Signatures
+        br
+        - record.signatures.each do |signature|
+          small = signature.author.email
+          br
+
+    - if record.signed_record.nil?
+      = form_with url: sign_record_path do |f|
+        = f.hidden_field :id, value: record.id
+        = f.hidden_field :date, value: record.content.date
+        = f.hidden_field :sha3, value: record.sha3
+        = f.hidden_field :signature, data: { record_target: 'signature' }
+        = f.submit 'Sign', data: { action: 'click->record#sign' }
 
     hr
