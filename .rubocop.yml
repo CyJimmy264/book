@@ -4,5 +4,11 @@ Layout/HashAlignment:
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact
 
+Style/FormatString:
+  EnforcedStyle: percent
+
+Style/FormatStringToken:
+  EnforcedStyle: unannotated
+
 Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: consistent_comma

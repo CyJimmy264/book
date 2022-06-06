@@ -1,4 +1,9 @@
 class Record < ApplicationRecord
+  belongs_to :author, class_name: 'User'
+
+  has_many :signatures, class_name: 'Record', foreign_key: 'signed_record_id'
+  belongs_to :signed_record, class_name: 'Record', optional: true
+
   class Content
     def self.load(content)
       Content.new(content)
@@ -18,8 +23,6 @@ class Record < ApplicationRecord
     end
     alias to_str to_s
   end
-
-  belongs_to :author, class_name: 'User'
 
   def content
     @content ||= Content.load(super)
