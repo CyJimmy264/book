@@ -17,11 +17,29 @@ html {
     overflow-y:scroll;
 }
 
-p:empty {
+p:empty, .hidden {
     display: none;
 }
 
 h1, h2, h3, h4, h5 {
     margin-block-start: 0.2em;
     margin-block-end: 0.5em;
+}
+
+p.notice {
+    border-color: green;
+    border-radius: 5px;
+    border-style: dashed;
+    padding: 5px 10px;
+}
+
+p.alert {
+    border-color: orange;
+    border-radius: 5px;
+    border-style: dashed;
+    padding: 5px 10px;
+}
+
+pre {
+    font-size: 0.75em;
 }

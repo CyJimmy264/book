@@ -5,36 +5,36 @@ h4 Key Management
   h5 Your public key
   pre = current_user.public_key
 
-div *{"data-controller" => "keys"}
+div data-controller="keys"
   label for="full_name" Full name
   br
-  input id="full_name" type="text" *{"data-target" => "keys.username"}
+  input id="full_name" type="text" data-keys-target="username"
   br
 
   label for="passphrase" Passphrase
   br
-  input id="passphrase" type="password" *{"data-target" => "keys.passphrase"}
+  input id="passphrase" type="password" data-keys-target="passphrase"
   br
 
   = form_with model: current_user do |f|
-    = f.hidden_field :email, name: nil, value: current_user.email, data: { target: "keys.email" }
+    = f.hidden_field :email, name: nil, value: current_user.email, data: { keys_target: "email" }
 
     button data-action="click->keys#generate" Generate Key Pair
     br
 
     = f.label :public_key
     br
-    = f.text_area :public_key, required: true, data: { target: "keys.publicKey" }
+    = f.text_area :public_key, required: true, data: { keys_target: "publicKey", action: "input->keys#publicKeyInput" }
     br
 
     = f.label :private_key
     br
-    = f.text_area :private_key, name: nil, data: { target: "keys.privateKey" }
+    = f.text_area :private_key, name: nil, data: { keys_target: "privateKey" }
     br
 
     = f.label :fingerprint
     br
-    = f.text_area :fingerprint, required: true, data: { target: "keys.fingerprint" }
+    = f.text_field :fingerprint, data: { keys_target: "fingerprint" }, disabled: 'disabled', style: 'width: 100%'
     br
 
     = f.submit "Update Keys", data: { action: "click->keys#register" }

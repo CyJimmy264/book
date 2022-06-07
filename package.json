@@ -1,0 +1,12 @@
+{
+  "name": "openpgp_utils",
+  "version": "0.1",
+  "description": "OpenPGP.js utils",
+  "main": "./js/openpgp.js",
+  "author": {
+    "name": "Maksim Veynberg"
+  },
+  "dependencies": {
+    "openpgp": "^5.2.1"
+  }
+}
