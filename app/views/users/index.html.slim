@@ -34,7 +34,7 @@ div data-controller="keys"
 
     = f.label :fingerprint
     br
-    = f.text_field :fingerprint, data: { keys_target: "fingerprint" }, disabled: 'disabled', style: 'width: 100%'
+    = f.text_field :fingerprint, data: { keys_target: "fingerprint" }, readonly: true, style: 'width: 100%'
     br
 
     = f.submit "Update Keys", data: { action: "click->keys#register" }
