@@ -35,4 +35,10 @@ export default class extends Controller {
       await registerKey(key);
     }
   }
+
+  async publicKeyInput(event) {
+    this.fingerprintTarget.value = (
+      await openpgp.readKey({ armoredKey: this.publicKeyTarget.value })
+    ).getFingerprint().toUpperCase()
+  }
 }

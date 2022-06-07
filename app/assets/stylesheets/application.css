@@ -39,3 +39,7 @@ p.alert {
     border-style: dashed;
     padding: 5px 10px;
 }
+
+pre {
+    font-size: 0.75em;
+}
