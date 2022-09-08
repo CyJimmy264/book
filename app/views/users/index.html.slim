@@ -29,7 +29,7 @@ div data-controller="keys"
 
     = f.label :private_key
     br
-    = f.text_area :private_key, name: nil, data: { keys_target: "privateKey" }
+    = f.text_area :private_key, name: nil, data: { keys_target: "privateKey", action: "input->keys#privateKeyInput" }
     br
 
     = f.label :fingerprint

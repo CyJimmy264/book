@@ -41,4 +41,14 @@ export default class extends Controller {
       await openpgp.readKey({ armoredKey: this.publicKeyTarget.value })
     ).getFingerprint().toUpperCase()
   }
+
+  async privateKeyInput(event) {
+    const passphrase = prompt("Please enter your passphrase")
+    const privateKey = await openpgp.decryptKey({
+      privateKey: await openpgp.readPrivateKey({ armoredKey: this.privateKeyTarget.value }),
+      passphrase
+    })
+    this.fingerprintTarget.value = privateKey.getFingerprint().toUpperCase()
+    this.publicKeyTarget.value = privateKey.toPublic().armor()
+  }
 }
