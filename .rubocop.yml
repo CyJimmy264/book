@@ -4,11 +4,22 @@ Layout/HashAlignment:
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact
 
+Style/Documentation:
+  Enabled: false
+
 Style/FormatString:
   EnforcedStyle: percent
 
 Style/FormatStringToken:
   EnforcedStyle: unannotated
 
+Style/RegexpLiteral:
+  AllowInnerSlashes: true
+
 Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: consistent_comma
+
+
+
+Lint/AmbiguousRegexpLiteral:
+  Enabled: false
