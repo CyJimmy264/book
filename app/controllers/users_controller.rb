@@ -1,9 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_login
 
-  def index
-    @users = User.where.not(public_key: nil).where.not(id: current_user.id).order(email: :asc)
-  end
+  def show; end
 
   def update
     @user = current_user
