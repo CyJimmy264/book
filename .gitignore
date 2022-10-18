@@ -40,3 +40,4 @@
 # Emacs undo tree
 *.~undo-tree~
 
+coverage
