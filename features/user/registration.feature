@@ -4,15 +4,17 @@ Feature: New user registration
   As a desktop user
   I want to register an account
 
-  Scenario: user opens the book
+  Background:
     Given I am on the root page
+
+  Scenario: user opens the book
     Then I should see "Log in"
     And I should see "Sign up"
 
   Scenario: user signs
-    Given I am on the root page
     When I follow "Sign up"
     Then I should be on the new user registration page
+
     When I fill in "Email" with "example@email.com"
     And I fill in "Password" with "password"
     And I fill in "Password confirmation" with "password"

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require File.expand_path(File.join(File.dirname(__FILE__), '..', 'support', 'paths'))
-
 module WithinHelpers
   def with_scope(locator, &block)
     if locator
@@ -27,6 +25,11 @@ end
 
 When /^(?:|I )press "([^"]*)"(?: within "([^"]*)")?$/ do |button, selector|
   with_scope(selector) do
+    expect(page).to have_true_js_value(%{
+      [...document.querySelectorAll('[data-controller]')]
+        .filter(el => el.controller === undefined)
+        .length == 0
+    })
     click_button(button)
   end
 end
@@ -70,5 +73,17 @@ Then /^(?:|I )should not see \/([^\/]*)\/(?: within "([^"]*)")?$/ do |regexp, se
   regexp = Regexp.new(regexp)
   with_scope(selector) do
     expect(page).to have_no_xpath('//*', text: regexp)
+  end
+end
+
+Then /^the "([^"]*)" field(?: within "([^"]*)")? should contain "([^"]*)"$/ do |field, selector, value|
+  with_scope(selector) do
+    expect(find_field(field)).to have_value(value)
+  end
+end
+
+Then /^the "([^"]*)" field(?: within "([^"]*)")? should not contain "([^"]*)"$/ do |field, selector, value|
+  with_scope(selector) do
+    expect(find_field(field)).not_to have_value(value)
   end
 end

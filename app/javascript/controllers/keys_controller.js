@@ -11,6 +11,8 @@ export default class extends Controller {
         await openpgp.readKey({ armoredKey: this.publicKeyTarget.value })
       ).getFingerprint().toUpperCase()
     }
+
+    this.element['controller'] = this
   }
 
   async generate(event) {

@@ -4,6 +4,10 @@ import * as openpgp from "openpgp"
 export default class extends Controller {
   static targets = ["content", "signature"]
 
+  connect() {
+    this.element['controller'] = this
+  }
+
   async sign(event) {
     event.preventDefault()
 
