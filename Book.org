@@ -10,4 +10,9 @@
 
 ** [[file:Docs/Index.org][Документация]]
 
+
 ** Установка
+
+
+** Журнал разработки
+   [[https://gist.github.com/CyJimmy264/fb360e649b39623bdb40b11cf2f4df90][Book dev notes.org]]
