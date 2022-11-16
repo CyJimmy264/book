@@ -13,6 +13,15 @@ module.exports = {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
     },
+    container: {
+      padding: {
+        DEFAULT: '2rem',
+        sm: '3rem',
+        lg: '8rem',
+        xl: '10rem',
+        '2xl': '16rem',
+      },
+    },
   },
   plugins: [
     require('@tailwindcss/forms'),
