@@ -6,35 +6,37 @@ h4 Key Management
   pre = current_user.public_key
 
 div data-controller="keys"
-  label for="full_name" Full name
-  br
-  input id="full_name" type="text" data-keys-target="username"
-  br
+  .form
+    .field
+      label for="full_name" Full name
+      br
+      input id="full_name" type="text" data-keys-target="username"
 
-  label for="passphrase" Passphrase
-  br
-  input id="passphrase" type="password" data-keys-target="passphrase"
-  br
+    .field
+      label for="passphrase" Passphrase
+      br
+      input id="passphrase" type="password" data-keys-target="passphrase"
 
   = form_with model: current_user do |f|
     = f.hidden_field :email, name: nil, value: current_user.email, data: { keys_target: "email" }
 
-    button data-action="click->keys#generate" Generate Key Pair
-    br
+    .button
+      button data-action="click->keys#generate" Generate Key Pair
 
-    = f.label :public_key
-    br
-    = f.text_area :public_key, required: true, data: { keys_target: "publicKey", action: "input->keys#publicKeyInput" }
-    br
+    .field
+      = f.label :public_key
+      br
+      = f.text_area :public_key, required: true, data: { keys_target: "publicKey", action: "input->keys#publicKeyInput" }
 
-    = f.label :private_key
-    br
-    = f.text_area :private_key, name: nil, data: { keys_target: "privateKey", action: "input->keys#privateKeyInput" }
-    br
+    .field
+      = f.label :private_key
+      br
+      = f.text_area :private_key, name: nil, data: { keys_target: "privateKey", action: "input->keys#privateKeyInput" }
 
-    = f.label :fingerprint
-    br
-    = f.text_field :fingerprint, data: { keys_target: "fingerprint" }, readonly: true, style: 'width: 100%'
-    br
+    .field
+      = f.label :fingerprint
+      br
+      = f.text_field :fingerprint, data: { keys_target: "fingerprint" }, readonly: true
 
-    = f.submit "Update Keys", data: { action: "click->keys#register" }
+    .button
+      = f.submit "Update Keys", data: { action: "click->keys#register" }
