@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-2xl;
+  }
+
+  h2 {
+    @apply text-xl;
+  }
+
+  a {
+    @apply text-cyan-700 no-underline hover:underline;
+  }
+
+  input[type], textarea {
+    @apply rounded;
+  }
+
+  input:focus, textarea:focus {
+    @apply focus:ring-0 focus:ring-offset-0 focus:border-cyan-700;
+  }
+
+  input[type=checkbox]:checked {
+    @apply checked:bg-cyan-600;
+  }
+
+  .btn {
+    @apply py-1 px-3 font-bold bg-cyan-600 hover:bg-cyan-700 border border-cyan-700 text-white rounded cursor-pointer transform active:scale-90 transition-transform;
+  }
+
+  input[type=submit], button {
+    @apply btn;
+  }
+}
+
+@layer components {
+  p.alert, p.notice {
+    @apply border;
+  }
+
+  body > header {
+    @apply relative w-full flex flex-wrap items-center py-4 bg-gray-100 text-gray-900 shadow-lg mb-4;
+  }
+
+  header > nav {
+    @apply container mx-auto flex flex-wrap items-center justify-between;
+  }
+
+  nav > a.logo {
+    @apply text-lg font-bold hover:no-underline;
+  }
+
+  body > main {
+    @apply container mx-auto flex-col;
+  }
+
+  form, .form {
+    @apply flex flex-col space-y-4 mb-4;
+  }
+}

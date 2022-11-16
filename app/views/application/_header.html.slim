@@ -1,6 +1,6 @@
 header
   nav
-    a href=root_path Book
+    a.logo href=root_path Book
     - if current_user.present?
       a href=user_path(current_user) Profile
       = link_to 'Logout', destroy_user_session_path, method: :delete

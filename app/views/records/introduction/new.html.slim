@@ -2,31 +2,32 @@ h4 Introduction
 
 p Let's fill in Introduction form!
 
-div.center
+div
   = form_with url: create_introduction_path do |f|
-    = f.label :firstname
-    br
-    = f.text_field :firstname, required: true
-    br
+    .field
+      = f.label :firstname
+      br
+      = f.text_field :firstname, required: true
 
-    = f.label :patronymic
-    br
-    = f.text_field :patronymic
-    br
+    .field
+      = f.label :patronymic
+      br
+      = f.text_field :patronymic
 
-    = f.label :surname
-    br
-    = f.text_field :surname
-    br
+    .field
+      = f.label :surname
+      br
+      = f.text_field :surname
 
-    = f.label :birthdate
-    br
-    = f.date_field :birthdate
-    br
+    .field
+      = f.label :birthdate
+      br
+      = f.date_field :birthdate
 
-    = f.label :address
-    br
-    = f.text_field :address
-    br
+    .field
+      = f.label :address
+      br
+      = f.text_field :address
 
-    = f.submit "Save"
+    .button
+      = f.submit "Save"
