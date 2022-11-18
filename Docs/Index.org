@@ -65,29 +65,3 @@
    * Content
    * Author Id
 
-* Вклад
-** Book.org, Book.md, README.md
-   README.md является ссылкой на Book.md.
-
-   Book.md экспортируется из Book.org.
-
-   Book.md править вручную нельзя.
-*** Emacs: Игнорирование преобразования расширений ссылок на .org документы
-    Сейчас, функция ~org-md-export-to-markdown~ при обработке ссылок на .org
-    файлы автоматически заменяет их ссылками на .md файлы.
-
-    Чтобы избавиться от такой особенности, в качестве грязного решения, можно
-    залезть в её исходник с помощью M-x ~find-function~, найти там
-    ~org-md-link~, и поправить строку:
-
-    #+begin_src elisp
-      (if (string= ".org" (downcase (file-name-extension raw-path ".")))
-    #+end_src
-
-    например на
-
-    #+begin_src elisp
-      (if (string= ".orgmd" (downcase (file-name-extension raw-path ".")))
-    #+end_src
-
-    Альтернативные решения приветствуются.
