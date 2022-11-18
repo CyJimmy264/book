@@ -14,6 +14,4 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: book_production
-  username: book
-  password: <%= ENV["BOOK_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
