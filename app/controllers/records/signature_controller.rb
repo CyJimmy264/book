@@ -41,6 +41,7 @@ class Records::SignatureController < ApplicationController
       current_user.public_key
     )
 
+    logger.info "OpenPGP.js verify result: #{result}"
     result.include? current_user.fingerprint.last(16)
   end
 
