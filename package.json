@@ -6,7 +6,8 @@
   "author": {
     "name": "Maksim Veynberg"
   },
+  "license": "GPL-3.0",
   "dependencies": {
-    "openpgp": "^5.2.1"
+    "openpgp": "^5.5.0"
   }
 }
