@@ -19,6 +19,12 @@ Devise.setup do |config|
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
+  config.parent_controller = 'DeviseTurboController'
+  config.navigational_formats = %i[html turbo_stream]
+
+  # config.warden do |manager|
+  #   manager.failure_app = TurboDeviseFailureApp
+  # end
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,

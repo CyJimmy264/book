@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { sessions: 'sessions' }
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
-  resources :users, only: [:show, :update]
+  resources :users, only: %i[show update]
 
   get '/records/introduction/new', as: 'new_introduction'
   post '/records/introduction', to: 'records/introduction#create', as: 'create_introduction'
   post '/records/signature', to: 'records/signature#create', as: 'sign_record'
 
-  root "home#index"
+  root 'home#index'
 end

@@ -14,13 +14,7 @@
     <%= render "header" %>
 
     <main>
-      <div>
-        <% flash.each do |type, msg| %>
-          <p class="<%= type %>">
-            <%= msg %>
-          </div>
-        <% end %>
-      </div>
+      <%= render "notifications" %>
 
       <div>
         <%= yield %>
