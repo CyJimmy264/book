@@ -38,7 +38,7 @@
 
 @layer components {
   p.alert, p.notice {
-    @apply border;
+    @apply border my-5;
   }
 
   body > header {
