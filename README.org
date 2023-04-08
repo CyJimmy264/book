@@ -5,7 +5,7 @@
   Оригинальная цель — создание технологической платформы для децентрализованного
   открытого голосования.
 
-  Демо: https://book-wnsz.onrender.com/
+  Демо: https://book.cj264.ru/
 
 * Table of Contents                                               :TOC:QUOTE:
 #+BEGIN_QUOTE
