@@ -46,6 +46,12 @@ When /^(?:|I )fill in "([^"]*)" (?:for|with) "([^"]*)"(?: within "([^"]*)")?$/ d
   end
 end
 
+When /^(?:|I )fill in "([^"]*)"(?: within "([^"]*)")? (?:for|with):$/ do |field, selector, message|
+  with_scope(selector) do
+    fill_in(field, with: message)
+  end
+end
+
 Then /^(?:|I )should see (".+?"\s*)(?:\s+within\s* "([^"]*)")?$/ do |vars, selector|
   vars.scan(/"([^"]+?)"/).flatten.each do |text|
     with_scope(selector) do

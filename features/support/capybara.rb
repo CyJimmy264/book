@@ -9,7 +9,7 @@ Capybara.configure do |config|
   config.server = :puma, { Silent: true }
 
   if ENV['SHOW_BROWSER'] == 'true'
-    config.register_driver :selenium_chrome do |app|
+    Capybara.register_driver :selenium_chrome do |app|
       browser_options = ::Selenium::WebDriver::Chrome::Options.new.tap do |opts|
         opts.args << '--window-size=1920,1080'
       end
