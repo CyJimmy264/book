@@ -8,19 +8,19 @@
 Capybara.configure do |config|
   config.server = :puma, { Silent: true }
 
-  if ENV['SHOW_BROWSER'] == 'true'
-    Capybara.register_driver :selenium_chrome do |app|
-      browser_options = ::Selenium::WebDriver::Chrome::Options.new.tap do |opts|
-        opts.args << '--window-size=1920,1080'
-      end
-      Capybara::Selenium::Driver.new(app, browser: :chrome, options: browser_options)
+  Capybara.register_driver :selenium_chrome do |app|
+    options = ::Selenium::WebDriver::Chrome::Options.new.tap do |opts|
+      opts.args << '--window-size=1920,1080'
     end
-    config.javascript_driver = :selenium_chrome
-  else
-    config.javascript_driver = :selenium_chrome_headless
+
+    Capybara::Selenium::Driver.new(app, browser: :chrome, options:)
   end
 
-  # config.javascript_driver = :selenium
+  config.javascript_driver = if ENV['SHOW_BROWSER'] == 'true'
+                               :selenium_chrome
+                             else
+                               :selenium_chrome_headless
+                             end
 
   config.default_max_wait_time = 5
 end

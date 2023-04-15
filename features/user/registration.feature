@@ -19,5 +19,5 @@ Feature: New user registration
     And I fill in "Password" with "password"
     And I fill in "Password confirmation" with "password"
     And I press "Sign up"
-    Then I should see "Hello example@email.com"
+    Then I should see "Hello, example@email.com"
     And I should see "Key Management"
