@@ -1,13 +1,19 @@
 class UsersController < ApplicationController
   before_action :require_login
 
-  def show; end
-
   def update
-    @user = current_user
-    @user.public_key = params.require(:user).require(:public_key)
-    @user.fingerprint = params.require(:user).require(:fingerprint)
-    @user.save
-    redirect_to root_path
+    current_user.update profile_params
+
+    if current_user.save
+      redirect_back fallback_location: user_path(current_user)
+    else
+      render :show, alert: 'Can not update user profile.'
+    end
+  end
+
+  private
+
+  def profile_params
+    params.require(:user).permit(:public_key, :fingerprint)
   end
 end

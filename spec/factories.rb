@@ -2,12 +2,12 @@
 
 FactoryBot.define do
   factory :record do
-    content { "MyString" }
+    content { 'MyString' }
     user { nil }
   end
 
   factory :user do
-    public_key { Faker::String.random }
+    public_key { '' }
     email { Faker::Internet.email }
     password { Faker::Internet.password }
   end

@@ -1,9 +1,11 @@
-p Hello #{current_user.email}!
+h1 #{t('hello')}, #{current_user.email}!
 
-h4 Key Management
-- if current_user.public_key.present?
-  h5 Your public key
-  pre = current_user.public_key
+h2 = t('key_management')
+
+.info
+  - if current_user.public_key.present?
+    h3 = t('your_public_key')
+    pre.mb-4 = current_user.public_key
 
 div data-controller="keys"
   .form

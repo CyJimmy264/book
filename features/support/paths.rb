@@ -3,6 +3,8 @@
 module NavigationHelpers
   def path_to(page_name)
     case page_name
+    when /^the profile page$/
+      user_path(@current_user)
     when /^the ([\w ]+) page$/
       public_send("#{Regexp.last_match(1).gsub(/\W+/, '_')}_path")
     when /^"(\/.*)"/

@@ -4,11 +4,15 @@
 
 @layer base {
   h1 {
-    @apply text-2xl;
+    @apply text-2xl mb-4;
   }
 
   h2 {
-    @apply text-xl;
+    @apply text-xl mb-4;
+  }
+
+  h3 {
+    @apply text-lg mb-4;
   }
 
   a {
@@ -34,6 +38,10 @@
   input[type=submit], button {
     @apply btn;
   }
+
+  pre {
+    @apply border border-cyan-600 rounded inline-block p-3 bg-gray-50;
+  }
 }
 
 @layer components {
@@ -50,7 +58,12 @@
   }
 
   nav > a.logo {
-    @apply text-lg font-bold hover:no-underline;
+    @apply text-lg font-bold hover:no-underline space-x-3 flex;
+  }
+
+  a.logo > svg {
+    width: 23px;
+    height: 27px;
   }
 
   body > main {
