@@ -1,0 +1,17 @@
+- content_for :bodyer do
+  .with-sidebar
+    aside
+      .sticky-menu
+        ul
+          li
+            = link_to settings_profile_path, class: active?('profile')
+              = render 'svg/fa_user'
+              span Profile
+          li
+            = link_to settings_keys_path, class: active?('keys')
+              = render 'svg/fa_key'
+              span Key management
+    main
+      = yield
+
+= render template: 'layouts/application'
