@@ -1,4 +1,12 @@
 ru:
-  hello: Привет
+  book: Книга
+  profile: Профиль
+  logout: Выйти
+
+  keys: Ключи
+
   key_management: Управление ключами
   your_public_key: Ваш публичный ключ
+  user_details: Данные пользователя
+
+  first_name: Имя

@@ -6,11 +6,11 @@
           li
             = link_to settings_profile_path, class: active?('profile')
               = render 'svg/fa_user'
-              span Profile
+              span = t('profile')
           li
             = link_to settings_keys_path, class: active?('keys')
               = render 'svg/fa_key'
-              span Key management
+              span = t('keys')
     main
       = yield
 
