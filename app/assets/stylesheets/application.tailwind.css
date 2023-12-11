@@ -45,29 +45,73 @@
 }
 
 @layer components {
-  p.alert, p.notice {
-    @apply border my-5;
-  }
+  /* header */
 
   body > header {
     @apply relative w-full flex flex-wrap items-center py-4 bg-gray-100 text-gray-900 shadow-lg mb-4;
   }
 
-  header > nav {
+  header > nav.bar {
     @apply container mx-auto flex flex-wrap items-center justify-between;
   }
 
-  nav > a.logo {
+  header > nav.bar ul {
+    @apply flex space-x-3;
+  }
+
+  nav.bar > a.logo {
     @apply text-lg font-bold hover:no-underline space-x-3 flex;
   }
 
   a.logo > svg {
+    @apply text-cyan-700;
     width: 23px;
     height: 27px;
   }
 
-  body > main {
+  /* notifications */
+
+  p.alert, p.notice {
+    @apply border my-5;
+  }
+
+  /* bodyer */
+
+  body .bodyer {
     @apply container mx-auto flex-col;
+  }
+
+  .with-sidebar {
+    @apply flex flex-row;
+  }
+
+  .with-sidebar aside {
+    @apply w-1/4 px-2;
+  }
+
+  .with-sidebar main {
+    @apply w-3/4 pt-4 px-2;
+  }
+
+  .with-sidebar aside .sticky-menu {
+    @apply sticky top-0 p-4 w-full;
+  }
+
+  .sticky-menu ul {
+    @apply flex flex-col overflow-hidden;
+  }
+
+  .sticky-menu svg {
+    width: 14px;
+    heigth: 16px;
+  }
+
+  .sticky-menu li > a {
+    @apply items-center flex space-x-2 p-3 text-black hover:no-underline;
+  }
+
+  .sticky-menu li > a.active {
+    @apply bg-sky-200;
   }
 
   form, .form {
